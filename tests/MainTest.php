@@ -12,9 +12,10 @@ class MainTest extends TestCase
      */
     public function testGetAsset()
     {
-        $manifestAsset = new AssetManifest("example-manifest");
+        $manifestAsset = new AssetManifest("example-manifest.json");
         $expected = "test-one.randomString.js";
         $result = $manifestAsset->getAsset("test-one.js");
+        var_dump($result);
         $this->assertEquals($expected, $result);
     }
 }

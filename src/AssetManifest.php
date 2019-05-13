@@ -19,7 +19,6 @@ class AssetManifest extends AbstractExtension
         $this->manifestJson = $manifestJson;
     }
 
-
     /**
      * @return array
      */
@@ -37,7 +36,7 @@ class AssetManifest extends AbstractExtension
      */
     public function getAsset(string $file): string
     {
-        $manifest = json_decode(file_get_contents($this->manifestJson.".json"), true);
+        $manifest = json_decode(file_get_contents($this->manifestJson), true);
 
         if (!array_key_exists($file, $manifest)) {
             throw new \Exception("Asset not mapped");

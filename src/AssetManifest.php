@@ -32,14 +32,13 @@ class AssetManifest extends AbstractExtension
     /**
      * @param string $file
      * @return string
-     * @throws \Exception
      */
     public function getAsset(string $file): string
     {
         $manifest = json_decode(file_get_contents($this->manifestJson), true);
 
         if (!array_key_exists($file, $manifest)) {
-            throw new \Exception("Asset not mapped");
+            return $file;
         }
 
         return $manifest[$file];
